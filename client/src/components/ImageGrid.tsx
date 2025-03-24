@@ -21,8 +21,10 @@ const ImageGrid: React.FC<ImageGridProps> = ({
         <div
           key={img._id}
           className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
-          onClick={() => onImageClick && onImageClick(img.subjectId)}
+          // onClick={() => onImageClick && onImageClick(img.subjectId)}
         >
+          {console.log(img)}
+
           <img
             src={img.image_url}
             alt={img.title || "Image"}
@@ -31,7 +33,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
           <div className="p-4">
             <h2 className="font-semibold text-lg">{img.title || "Untitled"}</h2>
             <p className="text-sm text-gray-500">
-              {img.category || "Uncategorized"}
+              {img.subjectId.name || "Uncategorized"}
             </p>
           </div>
         </div>
@@ -41,5 +43,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
     )}
   </div>
 );
+
+export default ImageGrid;
 
 export default ImageGrid;
